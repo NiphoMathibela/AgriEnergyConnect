@@ -24,7 +24,7 @@ namespace AgriEnergyConnect.Pages.Marketplace
                 {
                     conn.Open();
 
-                    String sql = $"SELECT * FROM products WHERE product_id = {productId}";
+                    String sql = $"SELECT * FROM products WHERE product_id = '{productId}'";
 
                     using (MySqlCommand cmd = new MySqlCommand(sql, conn))
                     {
@@ -36,7 +36,8 @@ namespace AgriEnergyConnect.Pages.Marketplace
                                 product.Id = reader.GetInt32(0);
                                 product.Name = reader.GetString(1);
                                 product.Description = reader.GetString(2);
-                                product.Category = reader.GetString(3);
+                                string category = reader.GetString(3);
+                                product.Category = char.ToUpper(category[0]) + category.Substring(1);
                                 product.Price = reader.GetDecimal(6);
                                 product.ImgUrl = reader.GetString(4);
                                 product.UserId = reader.GetInt32(5);
@@ -56,6 +57,7 @@ namespace AgriEnergyConnect.Pages.Marketplace
 
         public void OnPost()
         {
+            updatedProduct.Id = Convert.ToInt32(Request.Form["id"]);
             updatedProduct.Name = Request.Form["name"];
             updatedProduct.Category = Request.Form["category"];
             updatedProduct.Description = Request.Form["description"];
@@ -69,7 +71,7 @@ namespace AgriEnergyConnect.Pages.Marketplace
                 {
                     conn.Open();
 
-                    String sql = $"UPDATAE products SET name = {updatedProduct.Name}, description = {updatedProduct.Description}, category = {updatedProduct.Category}, imgUrl = {updatedProduct.ImgUrl}, price = {updatedProduct.Price} WHERE product_id = {productId}";
+                    String sql = $"UPDATE products SET name = '{updatedProduct.Name}', description = '{updatedProduct.Description}', category = '{updatedProduct.Category}', imgUrl = '{updatedProduct.ImgUrl}', price = '{updatedProduct.Price}' WHERE product_id = '{updatedProduct.Id}'";
 
                     using (MySqlCommand cmd = new MySqlCommand(sql, conn))
                     {
@@ -83,6 +85,8 @@ namespace AgriEnergyConnect.Pages.Marketplace
 
                 throw;
             }
+
+            Response.Redirect("/Profile");
         }
     }
 }

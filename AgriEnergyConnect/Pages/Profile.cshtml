@@ -52,7 +52,7 @@
                                                 <img src='@item.ImgUrl' alt="" class="img-fluid d-none d-md-block rounded mb-2 shadow ">
                                             </div>
                                             <div class="col-md-9 text-left mt-sm-2">
-                                                <h4>Product Name</h4>
+                                                <h4>@item.Name</h4>
                                                 <p class="font-weight-light">Brand &amp; @item.Name</p>
                                             </div>
                                         </div>
@@ -63,10 +63,10 @@
                                     </td>
                                     <td class="actions" data-th="">
                                         <div class="text-right">
-                                            <a class="btn btn-white border-secondary bg-white btn-md mb-2" href="/MarketPlace/EditProduct?id">
+                                            <a class="btn btn-white border-secondary bg-white btn-md mb-2" href="/MarketPlace/EditProduct?id=@item.Id">
                                                 <ion-icon name="create-outline"></ion-icon>
                                             </a>
-                                            <a class="btn btn-white border-secondary bg-white btn-md mb-2" href="/MarketPlace/DeleteProduct?id">
+                                            <a class="btn btn-white border-secondary bg-white btn-md mb-2" href="/MarketPlace/DeleteProduct?id=@item.Id">
                                                 <ion-icon name="trash-outline"></ion-icon>
                                             </a>
                                         </div>

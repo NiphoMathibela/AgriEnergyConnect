@@ -7,14 +7,15 @@
 <div class="container mt-3">
     <h1>Edit Product</h1>
     <form method="post">
+        <input type="hidden" name="id" value="@Model.editedProduct.Id" />
         <div class="mb-3">
             <label for="productName" class="form-label">Product Name</label>
-            <input type="text" class="form-control" id="productName" name="name" value="" required>
+            <input type="text" class="form-control" id="productName" name="name" value="@Model.editedProduct.Name" required>
         </div>
         <div class="mb-3">
             <label for="category" class="form-label">Category</label>
             <select class="form-select" aria-label="Category" required name="category">
-                <option selected>Select a category</option>
+                <option value="@Model.editedProduct.Category" selected>@Model.editedProduct.Category</option>
                 <option value="solar">Solar Power</option>
                 <option value="wind">Wind Power</option>
                 <option value="bio">Bio</option>
@@ -23,16 +24,16 @@
         </div>
         <div class="mb-3">
             <label for="productDescription" class="form-label">Description</label>
-            <textarea class="form-control" id="productDescription" rows="3" name="description"></textarea>
+            <textarea class="form-control" id="productDescription" rows="3" name="description">@Model.editedProduct.Description</textarea>
         </div>
         <div class="mb-3">
             <label for="productPrice" class="form-label">Price</label>
-            <input type="number" step="0.01" class="form-control" id="productPrice" name="price" required>
+            <input type="number" step="0.01" class="form-control" id="productPrice" value="@Model.editedProduct.Price" name="price" required>
         </div>
         <div class="mb-3">
             <label for="productImage" class="form-label">Image URL</label>
-            <input type="url" class="form-control" id="productImage" name="url">
+            <input type="url" class="form-control" id="productImage" value="@Model.editedProduct.ImgUrl" name="url">
         </div>
-        <button type="submit" class="btn btn-primary">Add Product</button>
+        <button type="submit" class="btn btn-primary">Update Product Details</button>
     </form>
 </div>
