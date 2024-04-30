@@ -1,0 +1,31 @@
+﻿@page
+@using MySql.Data.MySqlClient;
+
+@{
+    try
+    {
+        //Product ID from the URL parameters
+        string productId = Request.Query["id"];
+
+        String connString = "server=localhost;database=agriconnectdb;uid=root;pwd='';";
+        using (MySqlConnection conn = new MySqlConnection(connString))
+        {
+            conn.Open();
+
+            String sql = $"DELETE FROM products WHERE product_id = '{productId}'";
+
+            using (MySqlCommand cmd = new MySqlCommand(sql, conn))
+            {
+                cmd.ExecuteNonQuery();
+                conn.Close();
+            }
+        }
+
+        Response.Redirect("/Profile");
+    }
+    catch (Exception ex)
+    {
+
+        throw;
+    }
+}
