@@ -1,0 +1,50 @@
+﻿@page
+@model AgriEnergyConnect.Pages.Farming.ForumModel
+@{
+    ViewData["Title"] = "Forum";
+}
+
+<header class="container mt-3">
+    <h1>Sustainable Farming Hub - Community Forum</h1>
+    <p>Connect with fellow farmers, share experiences, and learn from each other.</p>
+</header>
+
+<section class="container mt-5">
+    <h2>Latest Discussions</h2>
+    <div class="card shadow-sm mb-3">
+        <div class="card-header d-flex justify-content-between align-items-center">
+            <h5 class="card-title">Improving Soil Health with Cover Crops</h5>
+            <span class="badge bg-primary">23 Replies</span>
+        </div>
+        <div class="card-body">
+            <p class="card-text">Hi everyone, I'm looking for advice on implementing cover crops in my farm rotation. Any recommendations on good cover crop mixes for my region?  - John D.</p>
+            <a href="#" class="btn btn-sm btn-outline-primary">Read More</a>
+        </div>
+    </div>
+    <div class="card shadow-sm mb-3">
+        <div class="card-header d-flex justify-content-between align-items-center">
+            <h5 class="card-title">Combating Pests Organically</h5>
+            <span class="badge bg-primary">15 Replies</span>
+        </div>
+        <div class="card-body">
+            <p class="card-text">Sharing my experience using beneficial insects for pest control. It's been a game-changer!  - Sarah M.</p>
+            <a href="#" class="btn btn-sm btn-outline-primary">Read More</a>
+        </div>
+    </div>
+    <a href="#" class="btn btn-primary">View All Discussions</a>
+</section>
+
+<section class="container mt-5">
+    <h2>Start a New Discussion</h2>
+    <form>
+        <div class="mb-3">
+            <label for="discussionTitle" class="form-label">Discussion Title</label>
+            <input type="text" class="form-control" id="discussionTitle" placeholder="Enter your discussion title here">
+        </div>
+        <div class="mb-3">
+            <label for="discussionBody" class="form-label">Discussion Body</label>
+            <textarea class="form-control" id="discussionBody" rows="5" placeholder="Write your question or topic here"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Start Discussion</button>
+    </form>
+</section>

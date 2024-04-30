@@ -1,0 +1,94 @@
+﻿@page
+@model AgriEnergyConnect.Pages.ProfileModel
+@{
+    ViewData["Title"] = "Profile";
+}
+
+<header class="container mt-3 d-flex justify-content-between">
+    <h1>Profile</h1>
+    <a href="#" class="btn btn-outline-primary">Edit Profile</a>
+</header>
+
+<main class="container mt-5">
+    <div class="row">
+        <div class="col-md-3 mb-5 mb-lg-0">
+            <ul class="list-group">
+                <li class="list-group-item">John Doe</li>
+                <a href="#" class="list-group-item list-group-item-action">My Projects</a>
+                <a href="#" class="list-group-item list-group-item-action">Saved Resources</a>
+                <a href="#" class="list-group-item list-group-item-action">Settings</a>
+            </ul>
+        </div>
+
+        <div class="col-md-9">
+            <div class="mb-5">
+                <h2>Add New Product</h2>
+                <a type="button" asp-page="/MarketPlace/AddProduct" class="btn btn-primary">Add Product</a>
+            </div>
+
+            <div class="mb-5">
+                <h2 class="">Products listed</h2>
+
+            </div>
+
+                <div class="row w-100">
+                    <div class="col-lg-12 col-md-12 col-12">
+                        <table id="shoppingCart" class="table table-condensed table-responsive">
+                            <thead>
+                                <tr>
+                                    <th style="width:60%">Product</th>
+                                    <th style="width:12%">Price</th>
+                                    <th style="width:10%">Stock</th>
+                                    <th style="width:16%"></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            @foreach(var item in Model.listedProducts)
+                            {
+                                <tr>
+                                    <td data-th="Product">
+                                        <div class="row">
+                                            <div class="col-md-3 text-left">
+                                                <img src='@item.ImgUrl' alt="" class="img-fluid d-none d-md-block rounded mb-2 shadow ">
+                                            </div>
+                                            <div class="col-md-9 text-left mt-sm-2">
+                                                <h4>Product Name</h4>
+                                                <p class="font-weight-light">Brand &amp; @item.Name</p>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td data-th="Price">R @item.Price</td>
+                                    <td data-th="Stock">
+                                        <div class="form-control form-control-lg text-center" value="1">25</div>
+                                    </td>
+                                    <td class="actions" data-th="">
+                                        <div class="text-right">
+                                            <a class="btn btn-white border-secondary bg-white btn-md mb-2" href="/MarketPlace/EditProduct?id">
+                                                <ion-icon name="create-outline"></ion-icon>
+                                            </a>
+                                            <a class="btn btn-white border-secondary bg-white btn-md mb-2" href="/MarketPlace/DeleteProduct?id">
+                                                <ion-icon name="trash-outline"></ion-icon>
+                                            </a>
+                                        </div>
+                                    </td>
+                                </tr>
+                            }
+                            </tbody>
+                        </table>
+              </div>
+            <h2>Recent Activity</h2>
+            <div class="card mb-3">
+                <div class="card-body">
+                    <p class="card-text">Commented on the discussion "Improving Soil Health with Cover Crops"</p>
+                    <a href="#" class="card-link">See Discussion</a>
+                </div>
+
+            <div class="card">
+                <div class="card-body">
+                    <p class="card-text">Saved the article "5 Ways to Reduce Water Usage on Your Farm"</p>
+                    <a href="#" class="card-link">View Article</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>

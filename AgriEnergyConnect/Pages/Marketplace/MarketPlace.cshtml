@@ -1,0 +1,69 @@
+﻿@page
+@model AgriEnergyConnect.Pages.Marketplace.MarketPlaceModel
+@{
+    ViewData["Title"] = "MarketPlace";
+}
+
+<header class="container mt-3">
+    <h1>Sustainable Ag & Renewables - Green Energy Marketplace</h1>
+    <p>Discover innovative green tech solutions to power your sustainable farm.</p>
+</header>
+
+<section class="container mt-5">
+    <h2>Explore Green Tech Solutions</h2>
+    <div class="row align-items-center mb-3">
+        <div class="col-md-6">
+            <select class="form-select" aria-label="Category Filter">
+                <option value="all">All Categories</option>
+                <option value="solar">Solar Power</option>
+                <option value="wind">Wind Power</option>
+                <option value="biogas">Biogas</option>
+                <option value="other">Other</option>
+            </select>
+        </div>
+        <div class="col-md-6">
+            <div class="input-group">
+                <input type="text" class="form-control" placeholder="Search Solutions">
+                <button class="btn btn-primary" type="button">Search</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-4 mb-3">
+            <div class="card shadow-sm">
+                <img src="solar-panel.jpg" class="card-img-top" alt="Solar Panel">
+                <div class="card-body">
+                    <h5 class="card-title">High-Efficiency Solar Panels</h5>
+                    <p class="card-text">Reduce your farm's reliance on grid power with reliable solar energy solutions.</p>
+                    <a href="#" class="btn btn-sm btn-outline-primary">View Details</a>
+                    <a href="#" class="btn btn-sm btn-primary">Compare</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-3">
+            <div class="card shadow-sm">
+                <img src="wind-turbine.jpg" class="card-img-top" alt="Wind Turbine">
+                <div class="card-body">
+                    <h5 class="card-title">Small-Scale Wind Turbines</h5>
+                    <p class="card-text">Harness the power of wind for your farm with efficient and cost-effective turbines.</p>
+                    <a href="#" class="btn btn-sm btn-outline-primary">View Details</a>
+                    <a href="#" class="btn btn-sm btn-primary">Compare</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-3">
+            <div class="card shadow-sm">
+                <img src="biogas-digester.jpg" class="card-img-top" alt="Biogas Digester">
+                <div class="card-body">
+                    <h5 class="card-title">Biogas Digester Systems</h5>
+                    <p class="card-text">Convert organic waste into clean energy and nutrient-rich fertilizer for your farm.</p>
+                    <a href="#" class="btn btn-sm btn-outline-primary">View Details</a>
+                    <a href="#" class="btn btn-sm btn-primary">Compare</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <a href="#" class="btn btn-primary float-end">View All Solutions</a>
+</section>
