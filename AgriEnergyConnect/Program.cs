@@ -7,7 +7,7 @@ var connectionString = builder.Configuration.GetConnectionString("AuthDbContextC
 
 builder.Services.AddDbContext<AuthDbContext>(options => options.UseMySql(connectionString, new MySqlServerVersion(new Version(5,2,1))));
 
-builder.Services.AddDefaultIdentity<AppUser>(options => options.SignIn.RequireConfirmedAccount = false).AddEntityFrameworkStores<AuthDbContext>();
+builder.Services.AddDefaultIdentity<AppUser>(options => options.SignIn.RequireConfirmedAccount = false).AddRoles<IdentityRole>().AddEntityFrameworkStores<AuthDbContext>();
 
 // Add services to the container.
 builder.Services.AddRazorPages();
@@ -30,5 +30,38 @@ app.UseRouting();
 app.UseAuthorization();
 
 app.MapRazorPages();
+
+using (var scope = app.Services.CreateScope())
+{
+    var roleManager = scope.ServiceProvider.GetRequiredService<RoleManager<IdentityRole>>();
+
+    var roles = new[] { "Employee", "Farmer" };
+
+    foreach (var role in roles)
+    {
+        if (!await roleManager.RoleExistsAsync(role))
+        {
+            await roleManager.CreateAsync(new IdentityRole(role));
+        }
+    }
+}
+
+//using (var scope = app.Services.CreateScope())
+//{
+//    var userManager = scope.ServiceProvider.GetRequiredService<UserManager<AppUser>>();
+
+//    string email = "stan2@gmail.com";
+//    string password = "Simple123@";
+//    if (await userManager.FindByEmailAsync(email) == null)
+//    {
+//        var user = new AppUser();
+//        user.UserName = email;
+//        user.Email = email;
+
+//        await userManager.CreateAsync(user, password);
+
+//        await userManager.AddToRoleAsync(user, "Employee");
+//    }
+//}
 
 app.Run();

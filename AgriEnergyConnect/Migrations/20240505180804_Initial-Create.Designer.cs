@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AgriEnergyConnect.Migrations
 {
     [DbContext(typeof(AuthDbContext))]
-    [Migration("20240429143819_Initial-Create")]
+    [Migration("20240505180804_Initial-Create")]
     partial class InitialCreate
     {
         /// <inheritdoc />

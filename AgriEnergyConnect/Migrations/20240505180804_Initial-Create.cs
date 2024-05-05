@@ -42,7 +42,7 @@ namespace AgriEnergyConnect.Migrations
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     FirstName = table.Column<string>(type: "nvarchar(100)", nullable: false),
                     LastName = table.Column<string>(type: "nvarchar(100)", nullable: false),
-                    UserType = table.Column<string>(type: "nvarchar(100)", nullable: false),
+                    UserType = table.Column<string>(type: "nvarchar(100)", nullable: true),
                     UserName = table.Column<string>(type: "varchar(256)", maxLength: 256, nullable: true)
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     NormalizedUserName = table.Column<string>(type: "varchar(256)", maxLength: 256, nullable: true)

@@ -1,5 +1,9 @@
 ﻿@page
 @model AgriEnergyConnect.Pages.ProfileModel
+@using System.Security.Claims;
+@using Microsoft.AspNetCore.Identity
+@using Microsoft.AspNetCore.Authentication;
+
 @{
     ViewData["Title"] = "Profile";
 }
@@ -22,7 +26,7 @@
 
         <div class="col-md-9">
             <div class="mb-5">
-                <h2>Add New Product</h2>
+                <h2>Add New Product @User.FindFirstValue(ClaimTypes.Role)</h2>
                 <a type="button" asp-page="/MarketPlace/AddProduct" class="btn btn-primary">Add Product</a>
             </div>
 
